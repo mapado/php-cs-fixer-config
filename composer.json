@@ -1,0 +1,20 @@
+{
+    "name": "mapado/php-cs-fixer-config",
+    "description": "Mapado PHP CS Fixer configuration",
+    "keywords": ["CS", "CodingStyle"],
+    "require": {
+        "friendsofphp/php-cs-fixer": "^2.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julien Deniau",
+            "email": "julien.deniau@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mapado\\CS\\Config\\": "src"
+        }
+    }
+}
