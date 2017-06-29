@@ -3,7 +3,7 @@
     "description": "Mapado PHP CS Fixer configuration",
     "keywords": ["CS", "CodingStyle"],
     "require": {
-        "friendsofphp/php-cs-fixer": "^2.3"
+        "friendsofphp/php-cs-fixer": "^2.2"
     },
     "license": "MIT",
     "authors": [
