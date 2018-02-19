@@ -5,6 +5,9 @@
     "require": {
         "friendsofphp/php-cs-fixer": "^2.6.1"
     },
+    "require-dev": {
+        "atoum/atoum": "^3.2"
+    },
     "license": "MIT",
     "authors": [
         {
@@ -15,6 +18,11 @@
     "autoload": {
         "psr-4": {
             "Mapado\\CS\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mapado\\CS\\Tests\\Units\\": "tests"
         }
     }
 }

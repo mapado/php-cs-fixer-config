@@ -4,7 +4,7 @@ namespace Mapado\CS;
 
 use PhpCsFixer\Config as CsFixerConfig;
 
-final class Config extends Config
+final class Config extends CsFixerConfig
 {
     private $useRisky;
 
