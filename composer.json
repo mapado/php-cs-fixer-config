@@ -3,7 +3,7 @@
     "description": "Mapado PHP CS Fixer configuration",
     "keywords": ["CS", "CodingStyle"],
     "require": {
-        "friendsofphp/php-cs-fixer": "^2.2"
+        "friendsofphp/php-cs-fixer": "^2.6.1"
     },
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Mapado\\CS\\Config\\": "src"
+            "Mapado\\CS\\": "src"
         }
     }
 }
