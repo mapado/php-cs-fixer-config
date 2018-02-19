@@ -1,7 +1,10 @@
 CHANGELOG
 ===========
 
-## 2.0.0
+## 2.0.1 - 2018-02-19
+Fixed issue with autoloading
+
+## 2.0.0 - 2018-02-19 [Yanked]
 ### Added 
 Support for PHP 7.1 and 7.2
 
