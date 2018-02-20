@@ -16,6 +16,8 @@ Create a configuration file `.php_cs` in the root of your project:
 ```php
 <?php
 
+require(__DIR__ .'/vendor/autoload.php');
+
 $config = new \Mapado\CS\Config();
 
 $config->getFinder()
