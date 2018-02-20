@@ -3,7 +3,7 @@
     "description": "Mapado PHP CS Fixer configuration",
     "keywords": ["CS", "CodingStyle"],
     "require": {
-        "friendsofphp/php-cs-fixer": "^2.6.1"
+        "friendsofphp/php-cs-fixer": "^2.2.16"
     },
     "require-dev": {
         "atoum/atoum": "^3.2"
