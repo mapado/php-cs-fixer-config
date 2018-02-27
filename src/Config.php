@@ -8,12 +8,15 @@ final class Config extends CsFixerConfig
 {
     private $useRisky;
 
-    public function __construct($useRisky = true)
+    private $extraRules;
+
+    public function __construct($useRisky = true, array $extraRules = [])
     {
         parent::__construct('Mapado');
 
         $this->setRiskyAllowed(true);
         $this->useRisky = $useRisky;
+        $this->extraRules = $extraRules;
     }
 
     public function getRules()
@@ -35,9 +38,12 @@ final class Config extends CsFixerConfig
             $out += [
                 '@PHP71Migration' => true,
                 '@PHP71Migration:risky' => $this->useRisky,
+                'void_return' => false,
+                'simplified_null_return' => true,
+                'list_syntax' => [ 'syntax' => 'short' ],
             ];
         }
 
-        return $out;
+        return $this->extraRules + $out;
     }
 }
