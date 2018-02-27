@@ -1,6 +1,15 @@
 CHANGELOG
 ===========
 
+## 2.1.0 - 2018-02-27
+### Added
+Add a possibility to set extra rule set. Only undefined rules will be set
+
+### Changed
+  * Set `void_return` to `false`
+  * Set `simplified_null_return` to `true`
+  * Set `list_syntax` to "short"
+
 ## 2.0.3 - 2018-02-20
 Allow using Symfony 2.x by lowering php-cs-fixer dependency
 
