@@ -37,8 +37,6 @@ final class Config extends CsFixerConfig
         if (version_compare(PHP_VERSION, '7.1.0', '>=')) {
             $out += [
                 '@PHP71Migration' => true,
-                '@PHP71Migration:risky' => $this->useRisky,
-                'void_return' => false,
                 'simplified_null_return' => true,
                 'list_syntax' => [ 'syntax' => 'short' ],
             ];
