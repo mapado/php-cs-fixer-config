@@ -38,8 +38,13 @@ final class Config extends CsFixerConfig
             $out += [
                 '@PHP71Migration' => true,
                 'simplified_null_return' => true,
-                'list_syntax' => [ 'syntax' => 'short' ],
             ];
+
+            if (class_exists('PhpCsFixer\Fixer\ListNotation\ListSyntaxFixer')) {
+                $out += [
+                    'list_syntax' => [ 'syntax' => 'short' ],
+                ];
+            }
         }
 
         return $this->extraRules + $out;
