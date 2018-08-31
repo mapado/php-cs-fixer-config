@@ -26,8 +26,8 @@ final class Config extends CsFixerConfig
             '@Symfony' => true,
             '@PHP70Migration' => true,
             '@PHP70Migration:risky' => $this->useRisky,
-            'array_syntax' => [ 'syntax' => 'short' ],
-            'concat_space' => [ 'spacing' => 'one' ],
+            'array_syntax' => ['syntax' => 'short'],
+            'concat_space' => ['spacing' => 'one'],
             'phpdoc_align' => false,
             'phpdoc_summary' => false,
             'ordered_imports' => true,
@@ -42,11 +42,16 @@ final class Config extends CsFixerConfig
 
             if (class_exists('PhpCsFixer\Fixer\ListNotation\ListSyntaxFixer')) {
                 $out += [
-                    'list_syntax' => [ 'syntax' => 'short' ],
+                    'list_syntax' => ['syntax' => 'short'],
                 ];
             }
         }
 
-        return $this->extraRules + $out;
+        // do not use array_merge or `+` to put new key at the end
+        foreach ($this->extraRules as $key => $value) {
+            $out[$key] = $value;
+        }
+
+        return $out;
     }
 }
