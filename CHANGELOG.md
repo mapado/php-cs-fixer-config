@@ -1,6 +1,11 @@
 CHANGELOG
 ===========
 
+## 3.0.0 - 2020-12-08
+
+- Default to all "Migration" rules, fallback for older version of PHP. It might break if php-cs-fixer changes the list of function in PHPXXMigration and that new rule needs a version of PHP that is not handled
+- Upgrade php-cs-fixer to 2.17.0
+
 ## 2.1.3 - 2018-08-31
 
 ### Changed
