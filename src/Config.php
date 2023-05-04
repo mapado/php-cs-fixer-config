@@ -43,6 +43,9 @@ final class Config extends CsFixerConfig
             // https://cs.symfony.com/doc/ruleSets/PHP80Migration.html
             '@PHP80Migration' => true,
 
+            // https://cs.symfony.com/doc/ruleSets/PHP81Migration.html
+            '@PHP81Migration' => true,
+
             // https://cs.symfony.com/doc/ruleSets/PHP80MigrationRisky.html
             '@PHP80Migration:risky' => $this->useRisky,
 
