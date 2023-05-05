@@ -19,7 +19,7 @@ final class Config extends CsFixerConfig
         $this->extraRules = $extraRules;
     }
 
-    public function getRules()
+    public function getRules(): array
     {
         $out = [
             '@PSR2' => true,

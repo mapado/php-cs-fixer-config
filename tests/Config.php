@@ -66,7 +66,7 @@ class Config extends atoum
                 ->then
                 ->if($visiPosition = array_search('visibility_required', array_keys($rules)))
                     ->integer($visiPosition)
-                        ->isEqualTo(13)
+                        ->isEqualTo(20)
         ;
     }
 }
