@@ -22,7 +22,7 @@ final class Config extends CsFixerConfig
     public function getRules(): array
     {
         $out = [
-            '@PSR2' => true,
+            '@PER' => true,
             '@Symfony' => true,
             '@PHP70Migration' => true,
             '@PHP70Migration:risky' => $this->useRisky,
@@ -89,6 +89,11 @@ final class Config extends CsFixerConfig
             // List (array destructuring) assignment should be declared using the configured syntax.
             // https://cs.symfony.com/doc/rules/list_notation/list_syntax.html
             'list_syntax' => ['syntax' => 'short'],
+            
+            // TODO Remove when https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/pull/6970 is merged
+            'function_declaration' => [
+                'closure_fn_spacing' => 'none'
+            ],
         ];
 
         if (version_compare(PHP_VERSION, '7.1.0', '<')) {
