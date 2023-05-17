@@ -22,7 +22,7 @@ final class Config extends CsFixerConfig
     public function getRules(): array
     {
         $out = [
-            '@PER' => true,
+            '@PSR12' => true,
             '@Symfony' => true,
             '@PHP70Migration' => true,
             '@PHP70Migration:risky' => $this->useRisky,
@@ -91,9 +91,8 @@ final class Config extends CsFixerConfig
             'list_syntax' => ['syntax' => 'short'],
             
             // TODO Remove when https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/pull/6970 is merged
-            'function_declaration' => [
-                'closure_fn_spacing' => 'none'
-            ],
+            // but settings as false as upgrade to 3.11 is not easy (need upgrade doctrine/anotation and synfony/console). So let prettier do the formatting job
+            'function_declaration' => false,
         ];
 
         if (version_compare(PHP_VERSION, '7.1.0', '<')) {
