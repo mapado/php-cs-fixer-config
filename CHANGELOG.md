@@ -1,11 +1,19 @@
 CHANGELOG
 ===========
 
-## 3.0.1 - 2023-05-19
+## 3.2.1 - 2023-05-19
 
 - Make PSR12 / PER explicit and fix short closure issue [#2](https://github.com/mapado/php-cs-fixer-config/pull/2)
 
-## 3.0.0 - 2023-05-04
+## 3.2.0 - 2023-05-05
+
+- upgrade php8 package
+
+## 3.1.1 - 2023-05-05
+
+- 3.16 require doctrine/annotation > 2, ticketing is not ready for that
+
+## 3.1.0 - 2023-05-04
 
 - Added php8.1 support
 - Upgrade php-cs-fixer to 3.16.0
