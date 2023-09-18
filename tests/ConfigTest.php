@@ -5,6 +5,9 @@ namespace Mapado\CS\Tests\Units;
 use Mapado\CS\Config;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers Config
+ */
 class ConfigTest extends TestCase
 {
     public function testConfig()

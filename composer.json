@@ -2,9 +2,6 @@
     "name": "mapado/php-cs-fixer-config",
     "description": "Mapado PHP CS Fixer configuration",
     "keywords": ["CS", "CodingStyle"],
-    "require": {
-        "friendsofphp/php-cs-fixer": "^2.17.0|^3"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -12,6 +9,12 @@
             "email": "julien.deniau@gmail.com"
         }
     ],
+    "require": {
+        "friendsofphp/php-cs-fixer": "^2.17.0|^3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.3"
+    },
     "autoload": {
         "psr-4": {
             "Mapado\\CS\\": "src"
@@ -22,7 +25,7 @@
             "Mapado\\CS\\Tests\\Units\\": "tests"
         }
     },
-    "require-dev": {
-        "phpunit/phpunit": "^10.3"
+    "scripts": {
+        "test": "phpunit"
     }
 }
