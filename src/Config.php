@@ -3,6 +3,7 @@
 namespace Mapado\CS;
 
 use PhpCsFixer\Config as CsFixerConfig;
+use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 
 final class Config extends CsFixerConfig
 {
@@ -14,6 +15,8 @@ final class Config extends CsFixerConfig
     {
         parent::__construct('Mapado');
 
+        $this->setParallelConfig(ParallelConfigFactory::detect());
+
         $this->setRiskyAllowed(true);
         $this->useRisky = $useRisky;
         $this->extraRules = $extraRules;
@@ -22,8 +25,9 @@ final class Config extends CsFixerConfig
     public function getRules(): array
     {
         $out = [
-            '@PSR12' => true,
             '@Symfony' => true,
+            '@PER-CS' => true,
+
             '@PHP70Migration' => true,
             '@PHP70Migration:risky' => $this->useRisky,
 
@@ -90,9 +94,54 @@ final class Config extends CsFixerConfig
             // https://cs.symfony.com/doc/rules/list_notation/list_syntax.html
             'list_syntax' => ['syntax' => 'short'],
             
-            // TODO Remove when https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/pull/6970 is merged
-            // but settings as false as upgrade to 3.11 is not easy (need upgrade doctrine/anotation and synfony/console). So let prettier do the formatting job
-            'function_declaration' => false,
+            // Replace non multibyte-safe functions with corresponding mb function.
+            // https://cs.symfony.com/doc/rules/alias/mb_str_functions.html
+            'mb_str_functions' => $this->useRisky,
+
+            // Add curly braces to indirect variables to make them clear to understand.
+            // https://cs.symfony.com/doc/rules/language_construct/explicit_indirect_variable.html
+            'explicit_indirect_variable' => true,
+
+            // Add leading \ before function invocation to speed up resolving.
+            // https://cs.symfony.com/doc/rules/function_notation/native_function_invocation.html
+            'native_function_invocation' => false,
+
+            // Imports or fully qualifies global classes/functions/constants.
+            // Reset Symfony value
+            // https://cs.symfony.com/doc/rules/import/global_namespace_import.html
+            'global_namespace_import' => false,
+
+            'nullable_type_declaration' => true,
+
+            // Removes @param, @return and @var tags that don’t provide any useful information.
+            // Comparing to Symfony, do not remove mixed
+            // https://cs.symfony.com/doc/ruleSets/Symfony.html
+            'no_superfluous_phpdoc_tags' => [
+                // 'allow_hidden_params' => true, // TODO activate this when available
+                'remove_inheritdoc' => true,
+                'allow_mixed' => true,
+        ],
+
+            // === Doctrine ===
+
+            // Rules covering Doctrine annotations with configuration based on examples found in Doctrine Annotation documentation and Symfony documentation.
+            // https://cs.symfony.com/doc/ruleSets/DoctrineAnnotation.html
+            '@DoctrineAnnotation' => version_compare(PHP_VERSION, '7.0.0', '>='),
+
+            // Fixes spaces in Doctrine annotations.
+            // Default in `@DoctrineAnnotation` is `['before_array_assignments_colon' => false]`
+            // https://cs.symfony.com/doc/rules/doctrine_annotation/doctrine_annotation_spaces.html
+            'doctrine_annotation_spaces' => [
+                'before_array_assignments_colon' => false,
+                'around_parentheses' => false,
+            ],
+
+            // Doctrine annotations must use configured operator for assignment in arrays.
+            // Default in `@DoctrineAnnotation` is `['operator' => ':']`
+            // https://cs.symfony.com/doc/rules/doctrine_annotation/doctrine_annotation_array_assignment.html
+            'doctrine_annotation_array_assignment' => [
+                'operator' => '=',
+            ],
         ];
 
         if (version_compare(PHP_VERSION, '7.1.0', '<')) {
@@ -110,3 +159,4 @@ final class Config extends CsFixerConfig
         return $out;
     }
 }
+
