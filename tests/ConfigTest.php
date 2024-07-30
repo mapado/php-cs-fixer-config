@@ -15,7 +15,7 @@ class ConfigTest extends TestCase
         $config = new Config();
         $rules = $config->getRules();
         $this->assertNotEmpty($rules);
-        $this->assertTrue($rules['@PSR12']);
+        $this->assertTrue($rules['@PER-CS']);
     }
 
     public function testRiskyRules()
@@ -46,8 +46,8 @@ class ConfigTest extends TestCase
         ]);
         $rules = $config->getRules();
         $symfonyPosition = array_search('@Symfony', array_keys($rules));
-        $this->assertEquals(1, $symfonyPosition);
+        $this->assertEquals(0, $symfonyPosition);
         $visiPosition = array_search('visibility_required', array_keys($rules));
-        $this->assertEquals(21, $visiPosition);
+        $this->assertEquals(29, $visiPosition);
     }
 }
