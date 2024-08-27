@@ -48,6 +48,6 @@ class ConfigTest extends TestCase
         $symfonyPosition = array_search('@Symfony', array_keys($rules));
         $this->assertEquals(0, $symfonyPosition);
         $visiPosition = array_search('visibility_required', array_keys($rules));
-        $this->assertEquals(29, $visiPosition);
+        $this->assertEquals(32, $visiPosition);
     }
 }
