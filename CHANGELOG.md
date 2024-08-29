@@ -1,6 +1,15 @@
 CHANGELOG
 ===========
 
+## 4.1.0
+
+- Prefer prettier over Symfony style [#4](https://github.com/mapado/php-cs-fixer-config/pull/4) by [@jdeniau](https://github.com/jdeniau)
+
+## 4.0.0
+
+- [BREAKING] Upgrade PHP-CS-Fixer and configuration [#3](https://github.com/mapado/php-cs-fixer-config/pull/3).
+  Requires `"friendsofphp/php-cs-fixer": "^3.60"`
+
 ## 3.2.1 - 2023-05-19
 
 - Make PSR12 / PER explicit and fix short closure issue [#2](https://github.com/mapado/php-cs-fixer-config/pull/2)
