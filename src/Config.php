@@ -93,7 +93,7 @@ final class Config extends CsFixerConfig
             // List (array destructuring) assignment should be declared using the configured syntax.
             // https://cs.symfony.com/doc/rules/list_notation/list_syntax.html
             'list_syntax' => ['syntax' => 'short'],
-            
+
             // Replace non multibyte-safe functions with corresponding mb function.
             // https://cs.symfony.com/doc/rules/alias/mb_str_functions.html
             'mb_str_functions' => $this->useRisky,
@@ -120,7 +120,26 @@ final class Config extends CsFixerConfig
                 // 'allow_hidden_params' => true, // TODO activate this when available
                 'remove_inheritdoc' => true,
                 'allow_mixed' => true,
-        ],
+            ],
+
+            // Operators - when multiline - must always be at the beginning or at the end of the line.
+            // Not explicitly set in PER, use the prettier version instead of Symfony's one
+            // https://cs.symfony.com/doc/rules/operator/operator_linebreak.html
+            'operator_linebreak' => [
+                'only_booleans' => true,
+                'position' => 'end',
+            ],
+
+            // Ensures a single space after language constructs.
+            // Comparing to Symfony let prettier handle `as` like it wants
+            // https://cs.symfony.com/doc/rules/language_construct/single_space_around_construct.html
+            'single_space_around_construct' => [
+                'constructs_preceded_by_a_single_space' => ['use_lambda']
+
+            ],
+
+            // until prettier fixes https://github.com/prettier/plugin-php/issues/2400
+            'single_line_empty_body' => false,
 
             // === Doctrine ===
 
@@ -159,4 +178,3 @@ final class Config extends CsFixerConfig
         return $out;
     }
 }
-
