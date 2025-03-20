@@ -11,7 +11,9 @@ final class Config extends CsFixerConfig
 
     private $extraRules;
 
-    public function __construct($useRisky = true, array $extraRules = [])
+    private bool $disablePrettierRules;
+
+    public function __construct($useRisky = true, array $extraRules = [], bool $disablePrettierRules = false)
     {
         parent::__construct('Mapado');
 
@@ -20,6 +22,7 @@ final class Config extends CsFixerConfig
         $this->setRiskyAllowed(true);
         $this->useRisky = $useRisky;
         $this->extraRules = $extraRules;
+        $this->disablePrettierRules = $disablePrettierRules;
     }
 
     public function getRules(): array
@@ -89,7 +92,6 @@ final class Config extends CsFixerConfig
             // https://cs.symfony.com/doc/rules/return_notation/simplified_null_return.html
             'simplified_null_return' => true,
 
-
             // List (array destructuring) assignment should be declared using the configured syntax.
             // https://cs.symfony.com/doc/rules/list_notation/list_syntax.html
             'list_syntax' => ['syntax' => 'short'],
@@ -134,12 +136,8 @@ final class Config extends CsFixerConfig
             // Comparing to Symfony let prettier handle `as` like it wants
             // https://cs.symfony.com/doc/rules/language_construct/single_space_around_construct.html
             'single_space_around_construct' => [
-                'constructs_preceded_by_a_single_space' => ['use_lambda']
-
+                'constructs_preceded_by_a_single_space' => ['use_lambda'],
             ],
-
-            // until prettier fixes https://github.com/prettier/plugin-php/issues/2400
-            'single_line_empty_body' => false,
 
             // === Doctrine ===
 
@@ -168,6 +166,18 @@ final class Config extends CsFixerConfig
                 // as PHP 7.0 can not have visibility on `const`
                 'visibility_required' => ['elements' => ['method', 'property']],
             ];
+        }
+
+        if ($this->disablePrettierRules) {
+            $out = array_merge($out, [
+                'class_definition' => false,
+                'statement_indentation' => false,
+                'no_unneeded_control_parentheses' => false,
+                'no_multiline_whitespace_around_double_arrow' => false,
+                'types_spaces' => false, // not that clear in PER
+                'single_space_around_construct' => false,
+                'method_argument_space' => false,
+            ]);
         }
 
         // do not use array_merge or `+` to put new key at the end
