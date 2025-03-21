@@ -1,5 +1,8 @@
-CHANGELOG
-===========
+# CHANGELOG
+
+## 4.2.0
+
+- Add an option to disable prettier-handled rules [#5](https://github.com/mapado/php-cs-fixer-config/pull/5) by [@jdeniau](https://github.com/jdeniau)
 
 ## 4.1.0
 
@@ -58,9 +61,9 @@ Add a possibility to set extra rule set. Only undefined rules will be set
 
 ### Changed
 
-  * Set `void_return` to `false`
-  * Set `simplified_null_return` to `true`
-  * Set `list_syntax` to "short"
+- Set `void_return` to `false`
+- Set `simplified_null_return` to `true`
+- Set `list_syntax` to "short"
 
 ## 2.0.3 - 2018-02-20
 
@@ -76,7 +79,7 @@ Fixed issue with autoloading
 
 ## 2.0.0 - 2018-02-19 [Yanked]
 
-### Added 
+### Added
 
 Support for PHP 7.1 and 7.2
 
