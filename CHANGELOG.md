@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.2.1
+
+- Fix another conflicts with prettier [#6](https://github.com/mapado/php-cs-fixer-config/pull/6) by [@jdeniau](https://github.com/jdeniau)
+
 ## 4.2.0
 
 - Add an option to disable prettier-handled rules [#5](https://github.com/mapado/php-cs-fixer-config/pull/5) by [@jdeniau](https://github.com/jdeniau)
