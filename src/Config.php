@@ -177,6 +177,10 @@ final class Config extends CsFixerConfig
                 'types_spaces' => false, // not that clear in PER
                 'single_space_around_construct' => false,
                 'method_argument_space' => false,
+                'integer_literal_case' => false,
+                'heredoc_indentation' => [
+                    'indentation' => 'same_as_start',
+                ],
             ]);
         }
 
