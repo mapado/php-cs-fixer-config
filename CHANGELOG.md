@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.0.0
+
+- upgrade php-cs-fixer to 3.91. Allow PHP 8.2 [#7](https://github.com/mapado/php-cs-fixer-config/pull/7) by [@jdeniau](https://github.com/jdeniau)
+
 ## 4.2.1
 
 - Fix another conflicts with prettier [#6](https://github.com/mapado/php-cs-fixer-config/pull/6) by [@jdeniau](https://github.com/jdeniau)
