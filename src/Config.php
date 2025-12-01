@@ -31,30 +31,11 @@ final class Config extends CsFixerConfig
             '@Symfony' => true,
             '@PER-CS' => true,
 
-            '@PHP70Migration' => true,
-            '@PHP70Migration:risky' => $this->useRisky,
+            // https://cs.symfony.com/doc/ruleSets/PHP8x2Migration.html
+            '@PHP8x2Migration' => true,
 
-            // only `visibility_required` rule
-            // https://cs.symfony.com/doc/ruleSets/PHP71Migration.html
-            '@PHP71Migration' => true,
-
-            // https://cs.symfony.com/doc/ruleSets/PHP73Migration.html
-            '@PHP73Migration' => true,
-
-            // https://cs.symfony.com/doc/ruleSets/PHP74Migration.html
-            '@PHP74Migration' => true,
-
-            // https://cs.symfony.com/doc/ruleSets/PHP74MigrationRisky.html
-            '@PHP74Migration:risky' => $this->useRisky,
-
-            // https://cs.symfony.com/doc/ruleSets/PHP80Migration.html
-            '@PHP80Migration' => true,
-
-            // https://cs.symfony.com/doc/ruleSets/PHP81Migration.html
-            '@PHP81Migration' => true,
-
-            // https://cs.symfony.com/doc/ruleSets/PHP80MigrationRisky.html
-            '@PHP80Migration:risky' => $this->useRisky,
+            // https://cs.symfony.com/doc/ruleSets/PHP8x2MigrationRisky.html
+            '@PHP8x2Migration:risky' => $this->useRisky,
 
             // PHP arrays should be declared using the configured syntax.
             // Force short array syntax (`[]` over `array()`)
@@ -98,7 +79,7 @@ final class Config extends CsFixerConfig
 
             // Replace non multibyte-safe functions with corresponding mb function.
             // https://cs.symfony.com/doc/rules/alias/mb_str_functions.html
-            'mb_str_functions' => $this->useRisky,
+            'mb_str_functions' => false, // TODO activate this back when on PHP 8.4 $this->useRisky,
 
             // Add curly braces to indirect variables to make them clear to understand.
             // https://cs.symfony.com/doc/rules/language_construct/explicit_indirect_variable.html

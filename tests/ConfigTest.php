@@ -22,11 +22,11 @@ class ConfigTest extends TestCase
     {
         $config = new Config();
         $rules = $config->getRules();
-        $this->assertTrue($rules['@PHP70Migration:risky']);
+        $this->assertTrue($rules['@PHP8x2Migration:risky']);
 
         $config = new Config(false);
         $rules = $config->getRules();
-        $this->assertFalse($rules['@PHP70Migration:risky']);
+        $this->assertFalse($rules['@PHP8x2Migration:risky']);
     }
 
     public function testExtraRules()
@@ -48,6 +48,6 @@ class ConfigTest extends TestCase
         $symfonyPosition = array_search('@Symfony', array_keys($rules));
         $this->assertEquals(0, $symfonyPosition);
         $visiPosition = array_search('visibility_required', array_keys($rules));
-        $this->assertEquals(31, $visiPosition);
+        $this->assertEquals(24, $visiPosition);
     }
 }
